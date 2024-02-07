@@ -1,12 +1,5 @@
 
 ---
-## Transformers Resources:
-
-- [Embeddings](https://txt.cohere.com/sentence-word-embeddings/?_gl=1*6ygb7c*_ga*ODY2ODA2NTA2LjE3MDUwNjg5NDk.*_ga_CRGS116RZS*MTcwNjM3MDM0Mi43LjEuMTcwNjM3MDQ3MC43LjAuMA)
-- [Similarity Between Sentences](https://txt.cohere.com/what-is-similarity-between-sentences/?_gl=1*yquzlc*_ga*ODY2ODA2NTA2LjE3MDUwNjg5NDk.*_ga_CRGS116RZS*MTcwNjM3MDM0Mi43LjEuMTcwNjM3MTI3Ni4xNi4wLjA)
-- [Transformers Explained](https://medium.com/@corymaklin/transformers-explained-610b2f749f43)
-
----
 ### Tokenization
 
 Tokens are the basic building blocks that a transformer model processes. In the context of transformers, tokens can be words, sub-words, or even characters, depending on the specific tokenization strategy used. As we learnt earlier.
@@ -90,7 +83,7 @@ print("Cosine Similarity:", cosine_similarity_score)
 ---
 ### What are Transformers?
 
-![The Big Boss Architecture](Images/The%20Big%20Boss%20Architecture.png)
+![The Big Boss Architecture](../Images/The%20Big%20Boss%20Architecture.png)
 
 A transformer is a neural network that collects and processes sequential data (like the words in a sentence) as it comes in and transforms one sequence into another sequence. Since their introduction, transformers have revolutionized the world of natural language processing.
 Suppose we have the following sentences:
@@ -102,29 +95,29 @@ Now, traditional models might get confused about the word "bank" in the second s
 
 ### A High-Level Look
 
-![High Level Look at Transformers](Images/High%20Level%20Look%20at%20Transformers.png)
+![High Level Look at Transformers](../Images/High%20Level%20Look%20at%20Transformers.png)
 ### Transformer Architecture - Encoder-Decoder
 
 The architecture described in the paper [Attention Is All You Need](https://arxiv.org/abs/1706.03762) consists of an **encoder** and **decoder**. This architecture enables the model to capture intricate relationships between words.
 
-![Encoder-Decoder Architecture Simplified](Images/Encoder-Decoder%20Architecture%20Simplified.png)
+![Encoder-Decoder Architecture Simplified](../Images/Encoder-Decoder%20Architecture%20Simplified.png)
 ### Input Embeddings
 
 Transformers don't take raw text as input. Word embeddings are generated for the input sequence, enabling the model to comprehend the contextual meaning of words.
 
-![Input Embeddings](Images/Input%20Embeddings.png)
+![Input Embeddings](../Images/Input%20Embeddings.png)
 ### Positional Encoding
 
 While embeddings represent word meaning, they lack information about the relative position of tokens in a sentence. Positional encoding fills this gap, capturing the sequence's word positions.
 As the name implies, positional encoding encodes the position of the words in the sequence.
 
-![Positional Embeddings](Images/Positional%20Embeddings.png)
+![Positional Embeddings](../Images/Positional%20Embeddings.png)
 
 Positional encoding works because absolute position is less important than relative position. For instance, we don’t need to know that the word “good” is at index 6 and the word “looks” is at index 5. It’s sufficient to remember that the word “good” tends to follows the word “looks”.
 
 Here’s a plot generated using a sequence length of 100 and embedding space of 512 dimensions:
 
-![Positional Embeddings Plot](Images/Positional%20Embeddings%20Plot.png)
+![Positional Embeddings Plot](../Images/Positional%20Embeddings%20Plot.png)
 
 For the first dimension, if the value is 1, it’s an odd word, if the value is 0, it’s an even word. For the d/2th dimension, if the value is 1, we know the word is in the second half of the sentence and if the value is 0, then it’s in the first half of the sentence. The model can use this information to determine the relative position of the tokens.
 
@@ -132,7 +125,7 @@ For the first dimension, if the value is 1, it’s an odd word, if the value is 
 
 After adding positional encoding, tokens become closer based on both semantic meaning and sentence position.
 
-![Encoder Input](Images/Encoder%20Input.png)
+![Encoder Input](../Images/Encoder%20Input.png)
 ### Encoder
 
 The Encoder maps all input sequences into an abstract continuous representation, holding learned information about word relationships. (i.e. how words relate to one another).
@@ -140,43 +133,43 @@ The Encoder maps all input sequences into an abstract continuous representation,
 
 This attention mechanism calculates attention scores for each word in a sequence, determining how much attention should be given to others.
 
-![Scaled Dot-Product Attention](Images/Scaled%20Dot-Product%20Attention.png)
+![Scaled Dot-Product Attention](../Images/Scaled%20Dot-Product%20Attention.png)
 
 After feeding the query, key, and value vectors through a linear layer, we calculate the dot product of the query and key vectors. The values in the resulting matrix determine how much attention should be given to the other words in the sequence given the current word. In other words, each word (row) will have an attention score for every other word (column) in the sequence.
 
-![Attention Scores](Images/Attention%20Scores.png)
+![Attention Scores](../Images/Attention%20Scores.png)
 
 The dot product is scaled by a factor of square root of the depth. This is done because for large values of depth, the dot product grows large in magnitude pushing the softmax function where it has small gradients which make it difficult to learn.
 
-![Attention Formula](Images/Attention%20Formula.png)
+![Attention Formula](../Images/Attention%20Formula.png)
 
 Once the values have been scaled, we apply a SoftMax function to obtain values between 0 and 1.
 
-![SoftMax Attention Scores](Images/SoftMax%20Attention%20Scores.png)
+![SoftMax Attention Scores](../Images/SoftMax%20Attention%20Scores.png)
 
 Finally, we multiply the resulting matrix by the value vector.
 
-![Resulting Attention Matrix](Images/Resulting%20Attention%20Matrix.png)
+![Resulting Attention Matrix](../Images/Resulting%20Attention%20Matrix.png)
 ### Multi-Headed Attention
 
 Multiple attention heads allow the model to consider different aspects simultaneously, enhancing its understanding of complex relationships.
 
 For example, given the word “the”, the first head will give more attention to the word “bank” whereas the second head will give more attention to the word “river”.
 
-![Multi-Head Attention Example](Images/Multi-Head%20Attention%20Example.png)
+![Multi-Head Attention Example](../Images/Multi-Head%20Attention%20Example.png)
 
 It’s important to note that after the split each head has a reduced dimensionality. Thus, the total computation cost is the same as a single head attention with full dimensionality.
 
 The attention output for each head is concatenated and put through a Dense layer.
 
-![Multi-Head Attention](Images/Multi-Head%20Attention.png)
+![Multi-Head Attention](../Images/Multi-Head%20Attention.png)
 ### The Residual Connections, Layer Normalization, and Feed Forward Network
 
 Residual connections, layer normalization, and a feed-forward network enhance the model's ability to avoid the vanishing gradient problem.
 
 The original positional input embedding is added to the multi-headed attention output vector. This is known as a residual connection. Each hidden layer has a residual connection around it followed by a layer normalization. Residual connections help in avoiding the vanishing gradient problem in deep networks.
 
-![RC, LN, FFN](Images/RC,%20LN,%20FFN.png)
+![RC, LN, FFN](../Images/RC,%20LN,%20FFN.png)
 
 The output finishes by passing through a point wise feed forward network.
 ### Decoder
@@ -186,19 +179,19 @@ The decoder’s job is to generate text. The decoder has similar hidden layers t
 
 Autoregressive decoding predicts future values based on previous ones. Positional encodings are added to word embeddings to capture token positions.
 
-![Decoder Input](Images/Decoder%20Input.png)
+![Decoder Input](../Images/Decoder%20Input.png)
 ### Masking
 
 A look-ahead mask ensures accurate predictions during decoding, allowing only previous tokens to be used for predicting the next. 
 
 For example, when predicting the third token in the sentence, only the previous tokens, that is, the first and second tokens, should be used.
 
-![Masking](Images/Masking.png)
+![Masking](../Images/Masking.png)
 ### Output
 
 The final SoftMax layer computes the probability of the next word in the sequence. The word with the highest probability becomes the next predicted word.
 
-![Output](Images/Output.png)
+![Output](../Images/Output.png)
 
 We take the word with the highest probability and append it to the sequence used in the next training iteration. 
 
@@ -214,6 +207,4 @@ Transformers, with their innovative architecture, are not just models; they're t
 **Feedforward**: Is a block in the transformer neural network, which guesses the next word.
 **SoftMax**: Turns the scores into probabilities in order to sample the next word
 ### What's Next?
-[[Workshop Booklet - Part 3 - LLM]]
-
-
+[Workshop Booklet - Part 3 - LLM](Workshop%20Booklet%20-%20Part%203%20-%20LLM.md)

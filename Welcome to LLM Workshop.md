@@ -1,9 +1,9 @@
 This is your LLM Workshop *vault*.
 
 Make a note of something,
-[[Workshop Booklet - Part 1 - NLP]]
-[[Workshop Booklet - Part 2 - Transformers]]
-[[Workshop Booklet - Part 3 - LLM]]
+[Workshop Booklet - Part 1 - NLP](Workshop%20Booklet%20-%20Part%201%20-%20NLP.md)
+[Workshop Booklet - Part 2 - Transformers](Workshop%20Booklet%20-%20Part%202%20-%20Transformers.md)
+[Workshop Booklet - Part 3 - LLM](Workshop%20Booklet%20-%20Part%203%20-%20LLM.md)
 
 Are you ready?
 

@@ -1,12 +1,5 @@
 
 ---
-## NLP Resources:
-
-- [Series of Medium Article for NLP concepts](https://medium.com/@ageitgey/natural-language-processing-is-fun-9a0bff37854e)
-- [Krish Naik Complete NLP Video](https://www.youtube.com/watch?v=ENLEjGozrio)
-- [Krish Naik Complete NLP Code](https://github.com/krishnaik06/The-Grand-Complete-Data-Science-Materials/tree/main/Complete%20NLP%20For%20ML%20%26%20Deep%20Learning/Practicals)
-
----
 ### What is NLP?
 
 Natural Language Processing (NLP) is a field of artificial intelligence (AI) that focuses on the interaction between computers and humans using natural language. The ultimate objective of NLP is to enable computers to understand, interpret, and generate human language in a way that is both meaningful and contextually relevant.
@@ -243,4 +236,4 @@ For the sentence "The cat in the hat," the bigrams would be {"The cat", "cat in"
 
 ---
 ### What's Next?
-[[Workshop Booklet - Part 2 - Transformers]]
+[Workshop Booklet - Part 2 - Transformers](Workshop%20Booklet%20-%20Part%202%20-%20Transformers.md)
